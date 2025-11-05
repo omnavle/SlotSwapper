@@ -1,4 +1,9 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
+fetch(`${API_BASE_URL}/api/slots`)
+  .then(res => res.json())
+  .then(data => console.log('Test API response:', data))
+  .catch(err => console.error('API fetch error:', err));
 
 export async function authFetch(path, opts = {}) {
   const token = localStorage.getItem('token');
